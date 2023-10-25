@@ -55,7 +55,15 @@ public class SwerveBase implements Animatable{
         // System.out.println("forward: " + Globals.REQUESTED_FORWARD);
         // System.out.println("strafe" + Globals.REQUESTED_STRAFE);
         // System.out.println("rot: " + Globals.REQUESTED_ROTATION);
-        heading = Math.PI / 2;
+        heading += Globals.MAX_ROTATION_SPEED * Globals.REQUESTED_ROTATION;
+        if (Globals.RESET_REQUESTED){
+            heading = 0;
+            Globals.RESET_REQUESTED = false;
+        }
+    }
+
+    public String toString(){
+        return "fl: " + fL.toString() + "\nfr: " + fR.toString() + "\nbl: " + bL.toString() + "\nbr: " + bR.toString();
     }
 
 

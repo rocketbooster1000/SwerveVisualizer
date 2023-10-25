@@ -14,6 +14,7 @@ public class Main {
         Globals.REQUESTED_FORWARD = 0;
         Globals.REQUESTED_STRAFE = 0;
         Globals.REQUESTED_ROTATION = 0;
+        Globals.RESET_REQUESTED = false;
         
         JFrame frame = new JFrame("Test");
         frame.setSize(Globals.WIDTH, Globals.HEIGHT);

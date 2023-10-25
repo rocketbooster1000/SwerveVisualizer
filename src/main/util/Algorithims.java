@@ -9,8 +9,8 @@ public class Algorithims {
 
         Vector correctedDrive = drive.rotate(heading);
         Vector FL = correctedDrive.add(new Vector(new Vector.VectorPolar(rotation * rotPower, offsetTheta)));
-        Vector FR = correctedDrive.add(new Vector(new Vector.VectorPolar(rotation * rotPower, -offsetTheta)));
-        Vector BL = correctedDrive.add(new Vector(new Vector.VectorPolar(rotation * rotPower, Math.PI - offsetTheta)));
+        Vector FR = correctedDrive.add(new Vector(new Vector.VectorPolar(rotation * rotPower, Math.PI - offsetTheta)));
+        Vector BL = correctedDrive.add(new Vector(new Vector.VectorPolar(rotation * rotPower, -offsetTheta)));
         Vector BR = correctedDrive.add(new Vector(new Vector.VectorPolar(rotation * rotPower, Math.PI + offsetTheta)));
 
         return neutralize(FL, FR, BL, BR);

@@ -57,6 +57,15 @@ public class SwervePanel extends JPanel implements ActionListener, KeyListener{
         if (e.getKeyChar() == 'd'){
             Globals.REQUESTED_STRAFE = 1;
         }
+        if (e.getKeyChar() == 'j'){
+            Globals.REQUESTED_ROTATION = -1;
+        }
+        if (e.getKeyChar() == 'l'){
+            Globals.REQUESTED_ROTATION = 1;
+        }
+        if (e.getKeyChar() == 'b'){
+            Globals.RESET_REQUESTED = true;
+        }
 
 
     }
@@ -74,6 +83,12 @@ public class SwervePanel extends JPanel implements ActionListener, KeyListener{
         }
         if (e.getKeyChar() == 'd'){
             Globals.REQUESTED_STRAFE = 0;
+        }
+        if (e.getKeyChar() == 'j'){
+            Globals.REQUESTED_ROTATION = 0;
+        }
+        if (e.getKeyChar() == 'l'){
+            Globals.REQUESTED_ROTATION = 0;
         }
     }
 }

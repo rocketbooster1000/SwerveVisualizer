@@ -9,7 +9,7 @@ import main.util.Globals;
 import main.util.Vector;
 
 public class SwerveModule implements Animatable{
-    private double power, rot;
+    private double power, rotate;
     private ModuleLocation location;
 
     public SwerveModule(ModuleLocation location){
@@ -18,11 +18,12 @@ public class SwerveModule implements Animatable{
 
     public void setState(Vector vector){
         this.power = vector.r;
-        this.rot = vector.theta;
+        this.rotate = vector.theta;
     }
 
     @Override
     public void draw(Graphics g){
+        double rot = this.rotate + Math.PI / 2;
         int startX;
         int startY;
         switch (location){
@@ -52,9 +53,9 @@ public class SwerveModule implements Animatable{
         int arrowY2 = endY - (int)(10 * power * Math.sin(rot - Math.toRadians(135)));
 
 
-        System.out.println((int)(5 * power * Math.sin(rot + Math.toRadians(135))));        
+        // System.out.println((int)(5 * power * Math.sin(rot + Math.toRadians(135))));        
 
-        //System.out.println((int)(5 * power * Math.cos(rot + Math.toRadians(135))));
+        // System.out.println((int)(5 * power * Math.cos(rot + Math.toRadians(135))));
 
         
         g.setColor(Color.BLUE);        
@@ -73,6 +74,10 @@ public class SwerveModule implements Animatable{
     @Override
     public void update() {
         
+    }
+
+    public String toString(){
+        return "Power: " + power + " | Angle: " + Math.toDegrees(rotate);
     }
 
 
