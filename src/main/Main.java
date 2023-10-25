@@ -11,6 +11,10 @@ import main.util.Globals;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        Globals.REQUESTED_FORWARD = 0;
+        Globals.REQUESTED_STRAFE = 0;
+        Globals.REQUESTED_ROTATION = 0;
+        
         JFrame frame = new JFrame("Test");
         frame.setSize(Globals.WIDTH, Globals.HEIGHT);
 
@@ -20,6 +24,9 @@ public class Main {
         Container c = frame.getContentPane();
         c.add(panel);
 
+        frame.addKeyListener(panel);
+
+        frame.setFocusable(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 

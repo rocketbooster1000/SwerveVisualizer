@@ -51,8 +51,11 @@ public class SwerveBase implements Animatable{
 
     @Override
     public void update(){
-        this.drive(0.5, 0, 1);
-        heading += Math.PI / 180;
+        this.drive(Globals.REQUESTED_FORWARD, Globals.REQUESTED_STRAFE, Globals.REQUESTED_ROTATION);
+        // System.out.println("forward: " + Globals.REQUESTED_FORWARD);
+        // System.out.println("strafe" + Globals.REQUESTED_STRAFE);
+        // System.out.println("rot: " + Globals.REQUESTED_ROTATION);
+        heading = Math.PI / 2;
     }
 
 
