@@ -16,7 +16,7 @@ public class Main {
         Globals.REQUESTED_ROTATION = 0;
         Globals.RESET_REQUESTED = false;
         
-        JFrame frame = new JFrame("Test");
+        JFrame frame = new JFrame("Swerve Visualizer v0.1.2");
         frame.setSize(Globals.WIDTH, Globals.HEIGHT);
 
         SwervePanel panel = new SwervePanel();

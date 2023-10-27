@@ -34,7 +34,15 @@ Alternatively you can also drag the jar file into the lib folder of your project
 
 Notes about contributing will come at a later date.
 
-## v0.1.1
+# Release Notes
+
+## v0.1.2 10272023
+
+RECOMMENDED - This is a recommended patch that fixes the following bugs:
+- Window title issue
+- Rotation direction was inverted
+
+## v0.1.1 10262023
 
 The following changes are present in this patch:
 - Separated `graphics` and `model` to be usable in other applications.
@@ -42,7 +50,7 @@ The following changes are present in this patch:
 - Added documentation
 - Small bug fixes and improvements
 
-## v0.1.0-alpha
+## v0.1.0-alpha 10252023
 
 This is the intitial release of this project that is not ready for production:
 - Only source code is available

@@ -35,7 +35,7 @@ public class SwerveBaseAnimatable extends SwerveBase implements Animatable{
         // System.out.println("forward: " + Globals.REQUESTED_FORWARD);
         // System.out.println("strafe" + Globals.REQUESTED_STRAFE);
         // System.out.println("rot: " + Globals.REQUESTED_ROTATION);
-        this.heading += Globals.MAX_ROTATION_SPEED * Globals.REQUESTED_ROTATION;
+        this.heading -= Globals.MAX_ROTATION_SPEED * Globals.REQUESTED_ROTATION;
         if (Globals.RESET_REQUESTED){
             this.heading = 0;
             Globals.RESET_REQUESTED = false;

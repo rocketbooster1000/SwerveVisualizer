@@ -8,7 +8,6 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
 
-import main.model.SwerveBase;
 import main.util.Animatable;
 import main.util.Globals;
 
@@ -46,7 +45,7 @@ public class SwervePanel extends JPanel implements ActionListener, KeyListener{
             case 'd': Globals.REQUESTED_STRAFE = 1; break;
             case 'j': Globals.REQUESTED_ROTATION = -1; break;
             case 'l': Globals.REQUESTED_ROTATION = 1; break;
-            case 'b': Globals.RESET_REQUESTED = true;
+            case 'b': Globals.RESET_REQUESTED = true; break;
         }
     }
     
