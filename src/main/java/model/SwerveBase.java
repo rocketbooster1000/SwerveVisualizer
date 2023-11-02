@@ -1,7 +1,7 @@
-package main.model;
+package main.java.model;
 
-import main.util.Algorithims;
-import main.util.Vector;
+import main.java.util.Algorithims;
+import main.java.util.Vector;
 
 public class SwerveBase{
     protected SwerveModule fL, fR, bL, bR;

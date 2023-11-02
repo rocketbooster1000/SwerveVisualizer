@@ -1,11 +1,11 @@
-package main.graphics;
+package main.java.graphics;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-import main.model.SwerveModule;
-import main.util.Animatable;
-import main.util.Globals;
+import main.java.model.SwerveModule;
+import main.java.util.Animatable;
+import main.java.util.Globals;
 
 public class SwerveModuelWrapperAnimatable implements Animatable{
     private SwerveModule module;

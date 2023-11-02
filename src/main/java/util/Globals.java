@@ -1,4 +1,4 @@
-package main.util;
+package main.java.util;
 
 public class Globals {
     public static int WIDTH = 500;

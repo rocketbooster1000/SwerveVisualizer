@@ -1,4 +1,4 @@
-package main.graphics;
+package main.java.graphics;
 
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -8,8 +8,8 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
 
-import main.util.Animatable;
-import main.util.Globals;
+import main.java.util.Animatable;
+import main.java.util.Globals;
 
 public class SwervePanel extends JPanel implements ActionListener, KeyListener{
     Animatable base;

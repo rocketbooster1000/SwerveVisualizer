@@ -1,4 +1,4 @@
-package main;
+package main.java;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -6,8 +6,8 @@ import java.awt.Container;
 import javax.swing.JFrame;
 import javax.swing.Timer;
 
-import main.graphics.SwervePanel;
-import main.util.Globals;
+import main.java.graphics.SwervePanel;
+import main.java.util.Globals;
 
 public class Main {
     public static void main(String[] args) throws Exception {
