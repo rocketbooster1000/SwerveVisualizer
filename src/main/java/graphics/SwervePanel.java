@@ -8,26 +8,26 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
 
+import main.java.Globals;
 import main.java.util.Animatable;
-import main.java.util.Globals;
 
 public class SwervePanel extends JPanel implements ActionListener, KeyListener{
     Animatable base;
     
     public SwervePanel(){
         super();
-        base = new SwerveBaseAnimatable();
+        this.base = new SwerveBaseAnimatable();
     }
 
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        base.draw(g);
+        this.base.draw(g);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        base.update();
+        this.base.update();
         repaint();
 
         Globals.WIDTH = this.getWidth();

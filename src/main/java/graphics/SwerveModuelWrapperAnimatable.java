@@ -3,9 +3,9 @@ package main.java.graphics;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import main.java.Globals;
 import main.java.model.SwerveModule;
 import main.java.util.Animatable;
-import main.java.util.Globals;
 
 public class SwerveModuelWrapperAnimatable implements Animatable{
     private SwerveModule module;
