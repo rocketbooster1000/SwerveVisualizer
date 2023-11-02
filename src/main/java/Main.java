@@ -7,7 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.Timer;
 
 import main.java.graphics.SwervePanel;
-import main.java.util.Globals;
 
 public class Main {
     public static void main(String[] args) throws Exception {

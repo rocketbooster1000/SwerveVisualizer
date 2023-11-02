@@ -1,15 +1,17 @@
 package main.java.graphics;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
+import main.java.Globals;
 import main.java.model.SwerveBase;
 import main.java.util.Animatable;
-import main.java.util.Globals;
 
 
 public class SwerveBaseAnimatable extends SwerveBase implements Animatable{
-    SwerveModuelWrapperAnimatable wrapperFl, wrapperFR, wrapperBL, wrapperBR;
+    private SwerveModuelWrapperAnimatable wrapperFl, wrapperFR, wrapperBL, wrapperBR;
+    private Font font;
 
     public SwerveBaseAnimatable(){
         super();
@@ -17,12 +19,18 @@ public class SwerveBaseAnimatable extends SwerveBase implements Animatable{
         this.wrapperFR = new SwerveModuelWrapperAnimatable(this.fR);
         this.wrapperBL = new SwerveModuelWrapperAnimatable(this.bL);
         this.wrapperBR = new SwerveModuelWrapperAnimatable(this.bR);
+
+        font = new Font("Times", Font.BOLD, Globals.FONT_SIZE);
     }
 
     @Override
     public void draw(Graphics g){
+        
         g.setColor(Color.RED);
         g.drawRect(Globals.WIDTH / 2 - Globals.SWERVE_WIDTH / 2, Globals.HEIGHT / 2 - Globals.SWERVE_HEIGHT / 2, Globals.SWERVE_WIDTH, Globals.SWERVE_HEIGHT);
+        g.setColor(Color.BLACK);
+        g.setFont(font);
+        g.drawString("Heading: " + String.format("%,.1f", Math.toDegrees(heading)), 3 * Globals.WIDTH / 4, Globals.HEIGHT / 8);
         this.wrapperFl.draw(g);
         this.wrapperFR.draw(g);
         this.wrapperBL.draw(g);

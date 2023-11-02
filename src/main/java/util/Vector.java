@@ -19,11 +19,11 @@ public class Vector {
     }
 
     public double getR(){
-        return r;
+        return this.r;
     }
 
     public double getTheta(){
-        return (theta);
+        return (this.theta);
     }
 
     public Vector rotate(double deg){
