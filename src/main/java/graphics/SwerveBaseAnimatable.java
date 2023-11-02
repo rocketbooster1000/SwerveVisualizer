@@ -20,17 +20,22 @@ public class SwerveBaseAnimatable extends SwerveBase implements Animatable{
         this.wrapperBL = new SwerveModuelWrapperAnimatable(this.bL);
         this.wrapperBR = new SwerveModuelWrapperAnimatable(this.bR);
 
-        font = new Font("Times", Font.BOLD, Globals.FONT_SIZE);
+        font = new Font("Times", Font.BOLD, Globals.WIDTH / 32);
     }
 
     @Override
     public void draw(Graphics g){
-        
         g.setColor(Color.RED);
         g.drawRect(Globals.WIDTH / 2 - Globals.SWERVE_WIDTH / 2, Globals.HEIGHT / 2 - Globals.SWERVE_HEIGHT / 2, Globals.SWERVE_WIDTH, Globals.SWERVE_HEIGHT);
+
+        int headingX = 5 * Globals.WIDTH / 8;
+        int headingY = Globals.HEIGHT / 8;
+        font = new Font(Font.MONOSPACED, Font.BOLD, Globals.WIDTH / 32);
         g.setColor(Color.BLACK);
         g.setFont(font);
-        g.drawString("Heading: " + String.format("%,.1f", Math.toDegrees(heading)), 3 * Globals.WIDTH / 4, Globals.HEIGHT / 8);
+        if (Globals.SHOW_HEADING) g.drawString(this.getFormattedHeading(), headingX, headingY);
+        g.drawRect(0, 0, 0, 0);
+
         this.wrapperFl.draw(g);
         this.wrapperFR.draw(g);
         this.wrapperBL.draw(g);
@@ -48,5 +53,12 @@ public class SwerveBaseAnimatable extends SwerveBase implements Animatable{
             this.heading = 0;
             Globals.RESET_REQUESTED = false;
         }
+    }
+
+    public String getFormattedHeading(){
+        if (Double.compare(heading, 0) == 0){
+            return "Heading: " + 0.0;
+        }
+        return "Heading: " + String.format("%,.1f", Math.toDegrees(-heading));
     }
 }

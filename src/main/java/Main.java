@@ -14,6 +14,7 @@ public class Main {
         Globals.REQUESTED_STRAFE = 0;
         Globals.REQUESTED_ROTATION = 0;
         Globals.RESET_REQUESTED = false;
+        Globals.SHOW_HEADING = true;
         
         JFrame frame = new JFrame("Swerve Visualizer v0.1.2");
         frame.setSize(Globals.WIDTH, Globals.HEIGHT);

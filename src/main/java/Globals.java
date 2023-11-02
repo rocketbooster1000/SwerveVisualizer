@@ -7,7 +7,9 @@ public final class Globals {
     public static double REQUESTED_FORWARD = 0;
     public static double REQUESTED_STRAFE = 0;
     public static double REQUESTED_ROTATION = 0;
+
     public static boolean RESET_REQUESTED = false;
+    public static boolean SHOW_HEADING = true;
     
     public static final double MAX_ROTATION_SPEED = Math.PI / 180;
     
@@ -17,5 +19,4 @@ public final class Globals {
     public static final int SWERVE_WIDTH = 100;
     public static final int SWERVE_HEIGHT = 100;
 
-    public static final int FONT_SIZE = 20;
 }

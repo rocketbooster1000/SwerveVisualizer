@@ -58,6 +58,7 @@ public class SwervePanel extends JPanel implements ActionListener, KeyListener{
             case 'd': Globals.REQUESTED_STRAFE = 0; break;
             case 'j': Globals.REQUESTED_ROTATION = 0; break;
             case 'l': Globals.REQUESTED_ROTATION = 0; break;
+            case 'h': Globals.SHOW_HEADING = !Globals.SHOW_HEADING; break;
         }
     }
 }
