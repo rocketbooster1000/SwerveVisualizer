@@ -28,9 +28,27 @@ When using the visualizer blue arrows will appear out of the corner of the swerv
 
 ## Using source code
 
-Source code is available by cloning this repository or downloading the release. Anything under `graphics` is meant for this visualizer's grpahics only, antyhing under `model` or `util` is intended to be used in other programs that may look to utilize swerve.
+There are a couple ways to use the source code of this project:
+- If you are a git user, you can clone the most current version of the reposityory. **This is not necessarily equivalent to the latest release**:
+    `git clone https://github.com/rocketbooster1000/SwerveVisualizer.git`
+- Alternatively you can download the latest release source code by going to the release pages.
+- If you prefer, you can also download the project from the main repository page by clicking the green `Code` drop down arrow, and then click `Download Zip` to minimize download size. **This is not necessarily equivalent to the latest release**
+- You can also drag the latest release jar file into your project library
 
-Alternatively you can also drag the jar file into the lib folder of your project to access its classes.
+### Using the project with an IDE
+
+Sometimes your IDE will generate files specific to that development environment, if you wish to contribute or use as a version control the best practice is to modify the `.gitignore` file:
+- A `*.` followed by a file extension will omit any files with that extension.
+    For example: `*.class` will omit any `.clss` files that the Java compiler produces
+- A `/` preceeded by a folder directory will omit the entire folder
+    For example: `.vscode/` will omit the entire `.vscode` folder that VS Code will generate for Java Projects
+- Putting the file name in will omit that singular file
+    For example: `settings.json` will omit only the `settings.json` file
+- Putting a `!` followed by a file name will add that file back into git tracking
+- A `#` indicates a comment
+- Any new line is a new statement
+
+## Contributing
 
 Notes about contributing will come at a later date.
 
