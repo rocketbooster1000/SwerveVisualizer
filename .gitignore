@@ -3,6 +3,8 @@
 bin/
 out/
 
+
 #IDE
 .vscode/
-SwerveVisualizer.iml
+*.iml
+.idea/
