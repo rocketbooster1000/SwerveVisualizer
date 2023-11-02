@@ -1,0 +1,6 @@
+# JDK
+*.class
+bin/
+
+#VS Code
+.vscode/
