@@ -1,6 +1,8 @@
 # JDK
 *.class
 bin/
+out/
 
-#VS Code
+#IDE
 .vscode/
+SwerveVisualizer.iml
