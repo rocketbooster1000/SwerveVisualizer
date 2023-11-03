@@ -40,12 +40,16 @@ There are a couple ways to use the source code of this project:
 
 Sometimes your IDE will generate files specific to that development environment, if you wish to contribute or use as a version control the best practice is to modify the `.gitignore` file:
 - A `*.` followed by a file extension will omit any files with that extension.
+
     For example: `*.class` will omit any `.class` files that the Java compiler produces
 - A `/` preceeded by a folder directory will omit the entire folder
+
     For example: `.vscode/` will omit the entire `.vscode` folder that VS Code will generate for Java Projects
 - Putting the file name in will omit that singular file
+
     For example: `settings.json` will omit only the `settings.json` file
 - Putting a `!` followed by a file name will add that file back into git tracking
+
     For example: If `*.json` was already in the `.gitignote` but a file `test.json` is wanted on git, `!test.json` will add that fule back to git
 - Any new line is a new statement
 
