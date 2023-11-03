@@ -30,7 +30,7 @@ When using the visualizer blue arrows will appear out of the corner of the swerv
 ## Using source code
 
 There are a couple ways to use the source code of this project:
-- If you are a git user, you can clone the most current version of the reposityory. **This is not necessarily equivalent to the latest release**:
+- If you are a git user, you can clone the most current version of the repository. **This is not necessarily equivalent to the latest release**:
     `git clone https://github.com/rocketbooster1000/SwerveVisualizer.git`
 - Alternatively you can download the latest release source code by going to the release pages.
 - If you prefer, you can also download the project from the main repository page by clicking the green `Code` drop down arrow, and then click `Download Zip` to minimize download size. **This is not necessarily equivalent to the latest release**
