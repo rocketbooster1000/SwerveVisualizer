@@ -50,7 +50,7 @@ Sometimes your IDE will generate files specific to that development environment,
     For example: `settings.json` will omit only the `settings.json` file
 - Putting a `!` followed by a file name will add that file back into git tracking
 
-    For example: If `*.json` was already in the `.gitignote` but a file `test.json` is wanted on git, `!test.json` will add that fule back to git
+    For example: If `*.json` was already in the `.gitignote` but a file `test.json` is wanted on git, `!test.json` will add that file back to git
 - Any new line is a new statement
 
 ## Contributing
