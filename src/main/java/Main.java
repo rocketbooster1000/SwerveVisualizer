@@ -17,7 +17,7 @@ public class Main {
         Globals.RESET_REQUESTED = false;
         Globals.SHOW_HEADING = true;
         
-        JFrame frame = new JFrame("Swerve Visualizer v0.2.0");
+        JFrame frame = new JFrame("Swerve Visualizer v0.2.0-alpha2");
         frame.setSize(Globals.WIDTH, Globals.HEIGHT);
 
         SwervePanel panel = new SwervePanel(frame);

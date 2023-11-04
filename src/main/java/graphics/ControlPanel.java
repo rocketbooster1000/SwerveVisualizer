@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -28,15 +29,19 @@ public class ControlPanel extends JPanel implements ActionListener {
 
   // Constructor
   public ControlPanel(JFrame frame) {
+    // super(new GridLayout(1, 4));
+
     super();
 
     this.parentFrame = frame;
 
-    this.textField = new JTextField(String.format("%,.1f", Math.toDegrees(Globals.MAX_ROTATION_SPEED)), 20);
+    add(new JLabel("  Rotation Speed  "));
+
+    this.textField = new JTextField(String.format("%,.1f", Math.toDegrees(Globals.MAX_ROTATION_SPEED)), 10);
     this.textField.setEditable(true);
     this.textField.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
     this.textField.setBackground(Color.WHITE);
-    this.textField.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+    // this.textField.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 
     this.textField.getInputMap().put(KeyStroke.getKeyStroke("W"), KeyBindingStrings.REQUEST_EMPTY_ACTION);
     this.textField.getInputMap().put(KeyStroke.getKeyStroke("S"), KeyBindingStrings.REQUEST_EMPTY_ACTION);
@@ -53,7 +58,6 @@ public class ControlPanel extends JPanel implements ActionListener {
 
     add(this.textField);
 
-    add(new JLabel(" Test "));
     
     this.confirmButton = new JButton("OK");
     this.confirmButton.addActionListener(this);

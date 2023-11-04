@@ -49,16 +49,27 @@ public class SwerveBaseAnimatable extends SwerveBase implements Animatable{
         // System.out.println("strafe" + Globals.REQUESTED_STRAFE);
         // System.out.println("rot: " + Globals.REQUESTED_ROTATION);
         this.heading -= Globals.MAX_ROTATION_SPEED * Globals.REQUESTED_ROTATION;
+        while (heading > 2 * Math.PI){
+            heading -= 2 * Math.PI;
+        }
+
+        while (heading < 0){
+            heading += 2 * Math.PI;
+        }
         if (Globals.RESET_REQUESTED){
             this.heading = 0;
             Globals.RESET_REQUESTED = false;
         }
+
+        // System.out.println("true: " + Math.toDegrees(heading));
+
+        // System.out.println("display: " + getFormattedHeading());
     }
 
     public String getFormattedHeading(){
         if (Double.compare(heading, 0) == 0){
             return "Heading: " + 0.0;
         }
-        return "Heading: " + String.format("%,.1f", Math.toDegrees(-heading));
+        return "Heading: " + String.format("%,.1f", Math.toDegrees(2 * Math.PI - heading));
     }
 }
