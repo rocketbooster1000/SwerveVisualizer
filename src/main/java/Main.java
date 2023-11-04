@@ -3,7 +3,9 @@ package main.java;
 import java.awt.Color;
 import java.awt.Container;
 
+import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.KeyStroke;
 import javax.swing.Timer;
 
 import main.java.graphics.SwervePanel;
@@ -25,11 +27,17 @@ public class Main {
         Container c = frame.getContentPane();
         c.add(panel);
 
-        frame.addKeyListener(panel);
+        // frame.addKeyListener(panel);
+
+        
+
+
 
         frame.setFocusable(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+
+        
 
         panel.repaint();
 
