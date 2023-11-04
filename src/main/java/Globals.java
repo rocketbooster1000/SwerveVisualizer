@@ -19,7 +19,7 @@ public final class Globals {
 
 
     
-    public static final double MAX_ROTATION_SPEED = Math.PI / 180;
+    public static double MAX_ROTATION_SPEED = Math.PI / 180;
     
     public static final int DRAW_VECTOR_LENGTH = 30;
     public static final int DRAW_ARROW_LENGTH = 10;
@@ -28,6 +28,7 @@ public final class Globals {
     public static final int SWERVE_HEIGHT = 100;
 
     public static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
+    public static final int F = JComponent.WHEN_FOCUSED;
 
     public static final class KeyBindingActions{
         public static final Action RESET_HEADING_ACTION = new AbstractAction() {
@@ -94,6 +95,10 @@ public final class Globals {
                 Globals.SHOW_HEADING = !Globals.SHOW_HEADING;
             }
         };
+
+        public static final Action EMPTY_ACTION = new AbstractAction() {
+            public void actionPerformed(ActionEvent e){}
+        };
     }
 
     public static final class KeyBindingStrings{
@@ -108,6 +113,8 @@ public final class Globals {
         public static final String REQUEST_RELEASE_FORWARD = "REQUEST_RELEASE_FORWARD";
         public static final String REQUEST_RELEASE_STRAFE = "REQUEST_RELEASE_STRAFE";
         public static final String REQUEST_RELEASE_ROTATION = "REQUEST_RELEASE_ROTATION";
+
+        public static final String REQUEST_EMPTY_ACTION = "REQUEST_EMPTY_ACTION";
     }
 
 }

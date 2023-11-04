@@ -1,22 +1,13 @@
 package main.java.graphics;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.KeyStroke;
-import javax.swing.text.JTextComponent.KeyBinding;
 
 import main.java.Globals;
 import main.java.Globals.KeyBindingActions;
@@ -24,10 +15,6 @@ import main.java.Globals.KeyBindingStrings;
 import main.java.util.Animatable;
 
 public class SwervePanel extends JPanel implements ActionListener{
-
-
-
-    
     private Animatable base;
     // JTextField wonText;
 
@@ -35,9 +22,10 @@ public class SwervePanel extends JPanel implements ActionListener{
 
     // JFrame parentFrame;
     
-    public SwervePanel(){
+    public SwervePanel(JFrame frame){
         super();
         this.base = new SwerveBaseAnimatable();
+
 
         // this.parentFrame = frame;
 
@@ -53,15 +41,15 @@ public class SwervePanel extends JPanel implements ActionListener{
 
         // add(button);
 
-        this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("W"), KeyBindingStrings.REQUEST_FORWARD);
-        this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("S"), KeyBindingStrings.REQUEST_BACK);
-        this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("A"), KeyBindingStrings.REQUEST_STRAFE_LEFT);
-        this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("D"), KeyBindingStrings.REQUEST_STRAFE_RIGHT);
-        this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("J"), KeyBindingStrings.REQUEST_ROTATION_LEFT);
-        this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("L"), KeyBindingStrings.REQUEST_ROTATION_RIGHT);
+        this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("pressed W"), KeyBindingStrings.REQUEST_FORWARD);
+        this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("pressed S"), KeyBindingStrings.REQUEST_BACK);
+        this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("pressed A"), KeyBindingStrings.REQUEST_STRAFE_LEFT);
+        this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("pressed D"), KeyBindingStrings.REQUEST_STRAFE_RIGHT);
+        this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("pressed J"), KeyBindingStrings.REQUEST_ROTATION_LEFT);
+        this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("pressed L"), KeyBindingStrings.REQUEST_ROTATION_RIGHT);
         
         this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("released W"), KeyBindingStrings.REQUEST_RELEASE_FORWARD);
-        this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("reelased S"), KeyBindingStrings.REQUEST_RELEASE_FORWARD);
+        this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("released S"), KeyBindingStrings.REQUEST_RELEASE_FORWARD);
         this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("released A"), KeyBindingStrings.REQUEST_RELEASE_STRAFE);
         this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("released D"), KeyBindingStrings.REQUEST_RELEASE_STRAFE);
         this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("released J"), KeyBindingStrings.REQUEST_RELEASE_ROTATION);
@@ -76,7 +64,7 @@ public class SwervePanel extends JPanel implements ActionListener{
         this.getActionMap().put(KeyBindingStrings.REQUEST_STRAFE_RIGHT, KeyBindingActions.STRAFE_RIGHT_ACTION);
         this.getActionMap().put(KeyBindingStrings.REQUEST_ROTATION_LEFT, KeyBindingActions.TURN_LEFT_ACTION);
         this.getActionMap().put(KeyBindingStrings.REQUEST_ROTATION_RIGHT, KeyBindingActions.TURN_RIGHT_ACTION);
-        
+
         this.getActionMap().put(KeyBindingStrings.REQUEST_RELEASE_FORWARD, KeyBindingActions.RELEASE_FORWARD_ACTION);
         this.getActionMap().put(KeyBindingStrings.REQUEST_RELEASE_STRAFE, KeyBindingActions.RELEASE_STRAFE_ACTION);
         this.getActionMap().put(KeyBindingStrings.REQUEST_RELEASE_ROTATION, KeyBindingActions.RELEASE_ROTATION_ACTION);
@@ -84,14 +72,21 @@ public class SwervePanel extends JPanel implements ActionListener{
         this.getActionMap().put(KeyBindingStrings.REQUEST_RESET_HEADING, KeyBindingActions.RESET_HEADING_ACTION);
         this.getActionMap().put(KeyBindingStrings.REQUEST_TOGGLE_HEADING, KeyBindingActions.TOGGLE_HEADING_ACTION);
 
+        add(new ControlPanel(frame));
+
 
 
 
     }
 
+    public SwervePanel(){
+        this(null);
+    }
+
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
+
         this.base.draw(g);
 
 

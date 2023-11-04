@@ -3,10 +3,9 @@ package main.java;
 import java.awt.Color;
 import java.awt.Container;
 
-import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.KeyStroke;
 import javax.swing.Timer;
+import javax.swing.UIManager;
 
 import main.java.graphics.SwervePanel;
 
@@ -18,10 +17,10 @@ public class Main {
         Globals.RESET_REQUESTED = false;
         Globals.SHOW_HEADING = true;
         
-        JFrame frame = new JFrame("Swerve Visualizer v0.1.2");
+        JFrame frame = new JFrame("Swerve Visualizer v0.2.0");
         frame.setSize(Globals.WIDTH, Globals.HEIGHT);
 
-        SwervePanel panel = new SwervePanel();
+        SwervePanel panel = new SwervePanel(frame);
         panel.setBackground(Color.WHITE);
 
         Container c = frame.getContentPane();
@@ -29,9 +28,13 @@ public class Main {
 
         // frame.addKeyListener(panel);
 
+        try{
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            // UIManager.setLookAndFeel("javax.swing.plaf.basic");
+            System.out.println(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e){}
+
         
-
-
 
         frame.setFocusable(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
