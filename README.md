@@ -78,4 +78,6 @@ This is the intitial release of this project that is not ready for production:
 - No documentation is offered
 - Program structure is spaghetti and not reusable
 
+Sidenote: this version never made it past pre-release thus only the alpha release notes are provided
+
 
