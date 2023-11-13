@@ -1,18 +1,19 @@
-package main.java.graphics;
+package root.graphics;
 
-import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
-import main.java.Globals;
-import main.java.Globals.KeyBindingActions;
-import main.java.Globals.KeyBindingStrings;
-import main.java.util.Animatable;
+import root.Globals;
+import root.Globals.KeyBindingActions;
+import root.Globals.KeyBindingStrings;
+import root.util.Animatable;
 
 public class SwervePanel extends JPanel implements ActionListener{
     private Animatable base;
@@ -23,7 +24,7 @@ public class SwervePanel extends JPanel implements ActionListener{
     // JFrame parentFrame;
     
     public SwervePanel(JFrame frame){
-        super();
+        super(new GridLayout(2, 3));
         this.base = new SwerveBaseAnimatable();
 
 
@@ -73,6 +74,8 @@ public class SwervePanel extends JPanel implements ActionListener{
         this.getActionMap().put(KeyBindingStrings.REQUEST_TOGGLE_HEADING, KeyBindingActions.TOGGLE_HEADING_ACTION);
 
         add(new ControlPanel(frame));
+        add(new JLabel("Hello"));
+        add(new JLabel("   Hellos    "));
 
 
 

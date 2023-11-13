@@ -1,12 +1,12 @@
-package main.java.graphics;
+package root.graphics;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
-import main.java.Globals;
-import main.java.model.SwerveBase;
-import main.java.util.Animatable;
+import root.Globals;
+import root.model.SwerveBase;
+import root.util.Animatable;
 
 
 public class SwerveBaseAnimatable extends SwerveBase implements Animatable{
@@ -33,7 +33,7 @@ public class SwerveBaseAnimatable extends SwerveBase implements Animatable{
         font = new Font(Font.MONOSPACED, Font.BOLD, Globals.WIDTH / 32);
         g.setColor(Color.BLACK);
         g.setFont(font);
-        if (Globals.SHOW_HEADING) g.drawString(this.getFormattedHeading(), headingX, headingY);
+        if (Globals.SHOW_HEADING) g.drawString(this.getFormatHeading(), headingX, headingY);
         g.drawRect(0, 0, 0, 0);
 
         this.wrapperFl.draw(g);
@@ -44,20 +44,15 @@ public class SwerveBaseAnimatable extends SwerveBase implements Animatable{
 
     @Override
     public void update(){
-        this.drive(Globals.REQUESTED_FORWARD, Globals.REQUESTED_STRAFE, Globals.REQUESTED_ROTATION);
+        this.setMaxRotation(Globals.MAX_ROTATION_SPEED);
+        this.drive(Globals.REQUESTED_FORWARD, Globals.REQUESTED_STRAFE, -Globals.REQUESTED_ROTATION);
         // System.out.println("forward: " + Globals.REQUESTED_FORWARD);
         // System.out.println("strafe" + Globals.REQUESTED_STRAFE);
         // System.out.println("rot: " + Globals.REQUESTED_ROTATION);
-        this.heading -= Globals.MAX_ROTATION_SPEED * Globals.REQUESTED_ROTATION;
-        while (heading > 2 * Math.PI){
-            heading -= 2 * Math.PI;
-        }
-
-        while (heading < 0){
-            heading += 2 * Math.PI;
-        }
+        System.out.println(heading);
+        
         if (Globals.RESET_REQUESTED){
-            this.heading = 0;
+            resetHeading();
             Globals.RESET_REQUESTED = false;
         }
 
@@ -66,10 +61,11 @@ public class SwerveBaseAnimatable extends SwerveBase implements Animatable{
         // System.out.println("display: " + getFormattedHeading());
     }
 
-    public String getFormattedHeading(){
-        if (Double.compare(heading, 0) == 0){
-            return "Heading: " + 0.0;
-        }
-        return "Heading: " + String.format("%,.1f", Math.toDegrees(2 * Math.PI - heading));
-    }
+    // @Override
+    // public String getFormatHeading(){
+    //     if (Double.compare(heading, 0) == 0){
+    //         return "Heading: " + 0.0;
+    //     }
+    //     return "Heading: " + String.format("%,.1f", Math.toDegrees(heading));
+    // }
 }

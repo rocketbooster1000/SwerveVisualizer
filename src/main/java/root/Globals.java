@@ -1,5 +1,4 @@
-package main.java;
-
+package root;
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
@@ -17,9 +16,9 @@ public final class Globals {
     public static boolean RESET_REQUESTED = false;
     public static boolean SHOW_HEADING = true;
 
-
-    
     public static double MAX_ROTATION_SPEED = Math.PI / 180;
+
+    public static double CURRENT_HEADING = 0;
     
     public static final int DRAW_VECTOR_LENGTH = 30;
     public static final int DRAW_ARROW_LENGTH = 10;

@@ -1,7 +1,7 @@
-package main.java.model;
+package root.model;
 
-import main.java.model.SwerveBase.ModuleLocation;
-import main.java.util.Vector;
+import root.model.SwerveBase.ModuleLocation;
+import root.util.Vector;
 
 public class SwerveModule{
     public double power, rotate;

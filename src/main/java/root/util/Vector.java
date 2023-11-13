@@ -1,4 +1,4 @@
-package main.java.util;
+package root.util;
 
 public class Vector {
     public double r, theta;
