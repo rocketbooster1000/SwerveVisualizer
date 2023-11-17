@@ -8,13 +8,16 @@ import javax.swing.JComponent;
 public final class Globals {
     public static int WIDTH = 500;
     public static int HEIGHT = 500;
+
+    public static final int CONTROL_WIDTH = 300;
+    public static final int CONTROL_HEIGHT = 120;
     
     public static double REQUESTED_FORWARD = 0;
     public static double REQUESTED_STRAFE = 0;
     public static double REQUESTED_ROTATION = 0;
 
     public static boolean RESET_REQUESTED = false;
-    public static boolean SHOW_HEADING = true;
+    public static boolean FIELD_CENTRIC = true;
 
     public static double MAX_ROTATION_SPEED = Math.PI / 180;
 
@@ -91,7 +94,7 @@ public final class Globals {
     
         public static final Action TOGGLE_HEADING_ACTION = new AbstractAction() {
             public void actionPerformed(ActionEvent e){
-                Globals.SHOW_HEADING = !Globals.SHOW_HEADING;
+                Globals.FIELD_CENTRIC = !Globals.FIELD_CENTRIC;
             }
         };
 

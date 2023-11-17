@@ -20,6 +20,7 @@ import root.util.Animatable;
 public class SwervePanel extends JPanel implements ActionListener{
     private Animatable base;
     private ControlPanel panel;
+    private JFrame parentFrame;
     // JTextField wonText;
 
     // Font displayFont;
@@ -30,6 +31,8 @@ public class SwervePanel extends JPanel implements ActionListener{
         super();
         this.setLayout(null);
         this.base = new SwerveBaseAnimatable();
+
+        this.parentFrame = frame;
 
 
         // this.parentFrame = frame;
@@ -78,7 +81,7 @@ public class SwervePanel extends JPanel implements ActionListener{
         this.getActionMap().put(KeyBindingStrings.REQUEST_TOGGLE_HEADING, KeyBindingActions.TOGGLE_HEADING_ACTION);
 
         panel = new ControlPanel(frame);
-        panel.setBounds(0, Globals.HEIGHT - 200, 300, 200 - 39);
+        panel.setBounds(0, Globals.HEIGHT - Globals.CONTROL_HEIGHT - frame.getInsets().bottom - frame.getInsets().top, Globals.CONTROL_WIDTH, Globals.CONTROL_HEIGHT);
         this.add(panel, JLayeredPane.PALETTE_LAYER);
         System.out.println(frame.getInsets().top);
 
@@ -94,8 +97,7 @@ public class SwervePanel extends JPanel implements ActionListener{
 
         this.base.draw(g);
 
-        this.panel.updateText(SwerveBaseAnimatable.getFormatHeading(Globals.CURRENT_HEADING));
-        
+        this.panel.refresh();        
 
 
         // displayFont = new Font(Font.MONOSPACED, Font.BOLD, Globals.WIDTH / 32);
@@ -110,5 +112,8 @@ public class SwervePanel extends JPanel implements ActionListener{
 
         Globals.WIDTH = this.getWidth();
         Globals.HEIGHT = this.getHeight();
+        try{
+            panel.setBounds(0, Globals.HEIGHT - Globals.CONTROL_HEIGHT , Globals.CONTROL_WIDTH, Globals.CONTROL_HEIGHT);
+        } catch (NullPointerException exception){}
     }
 }
