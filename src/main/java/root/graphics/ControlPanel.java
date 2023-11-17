@@ -21,6 +21,7 @@ import java.awt.event.ActionListener;
 import root.Globals;
 import root.Globals.KeyBindingActions;
 import root.Globals.KeyBindingStrings;
+import root.model.SwerveBase;
 
 public class ControlPanel extends JPanel implements ActionListener {
 
@@ -62,19 +63,21 @@ public class ControlPanel extends JPanel implements ActionListener {
     this.confirmButton.addActionListener(this);
     this.confirmButton.setBorderPainted(true);
 
+    this.headingLabel = new JLabel("            " + String.format("%,.1f", Globals.CURRENT_HEADING) + "  ");
+
     // this.otherButton = new JButton("OK");
     // this.otherButton.addActionListener(this);
     
     
     // changeColor("Background", this.confirmButton, Color.GRAY);
-    add(new JLabel("  Rotation Speed  "));
-    add(this.textField);
-    add(this.confirmButton);
+    this.add(new JLabel("  Rotation Speed  "));
+    this.add(this.textField);
+    this.add(this.confirmButton);
     
-    add(new JLabel("  Heading  "));
-    // add(this.otherButton);
-    add(new JLabel());
-    add(new JLabel());
+    this.add(new JLabel("  Heading  "));
+    // this.add(this.otherButton);
+    this.add(this.headingLabel);
+    this.add(new JLabel());
     
   }
   
@@ -100,6 +103,14 @@ public class ControlPanel extends JPanel implements ActionListener {
     
     
   }
+
+  public void update(){
+    headingLabel.setText("  " + String.format("%,.1f", Globals.CURRENT_HEADING) + "  ");
+  }
+
+  public void updateText(String text){
+    headingLabel.setText(text);
+  }
   
   public static void changeColor(String typeOfColor, Component component, Color color)
   {
@@ -121,24 +132,24 @@ public class ControlPanel extends JPanel implements ActionListener {
     }
   }
 
-  public static void main(String[] args) {
-    JFrame frame = new JFrame("Example");
-    frame.setLayout(null);
-    SwervePanel panel = new SwervePanel();
-    panel.setBackground(Color.WHITE);
-    panel.setBounds(10, 10, Globals.WIDTH, Globals.HEIGHT);
-    ControlPanel panel2 = new ControlPanel();
-    panel2.setBackground(Color.GREEN);
-    panel2.setBounds(Globals.WIDTH - 300, Globals.HEIGHT - 100, 300, 100);
-    frame.add(panel2, JLayeredPane.PALETTE_LAYER);
-    frame.add(panel, JLayeredPane.DEFAULT_LAYER);
-    frame.setSize(Globals.WIDTH + 100, Globals.HEIGHT+ 100);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setVisible(true);
+  // public static void main(String[] args) {
+  //   JFrame frame = new JFrame("Example");
+  //   frame.setLayout(null);
+  //   SwervePanel panel = new SwervePanel();
+  //   panel.setBackground(Color.WHITE);
+  //   panel.setBounds(10, 10, Globals.WIDTH, Globals.HEIGHT);
+  //   ControlPanel panel2 = new ControlPanel();
+  //   panel2.setBackground(Color.GREEN);
+  //   panel2.setBounds(Globals.WIDTH - 300, Globals.HEIGHT - 100, 300, 100);
+  //   frame.add(panel2, JLayeredPane.PALETTE_LAYER);
+  //   frame.add(panel, JLayeredPane.DEFAULT_LAYER);
+  //   frame.setSize(Globals.WIDTH + 100, Globals.HEIGHT+ 100);
+  //   frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  //   frame.setVisible(true);
     
-    // Timer timer = new Timer(30, panel);
-    // timer.start();
-  }
+  //   // Timer timer = new Timer(30, panel);
+  //   // timer.start();
+  // }
 
 
 }

@@ -45,25 +45,23 @@ public class SwerveBaseAnimatable extends SwerveBase implements Animatable{
     @Override
     public void update(){
         this.setMaxRotation(Globals.MAX_ROTATION_SPEED);
+
         this.drive(Globals.REQUESTED_FORWARD, Globals.REQUESTED_STRAFE, -Globals.REQUESTED_ROTATION);
-        // System.out.println("forward: " + Globals.REQUESTED_FORWARD);
-        // System.out.println("strafe" + Globals.REQUESTED_STRAFE);
-        // System.out.println("rot: " + Globals.REQUESTED_ROTATION);        
+    
         if (Globals.RESET_REQUESTED){
             resetHeading();
             Globals.RESET_REQUESTED = false;
         }
 
-        // System.out.println("true: " + Math.toDegrees(heading));
-
-        // System.out.println("display: " + getFormattedHeading());
+        Globals.CURRENT_HEADING = this.getHeading();
     }
 
-    // @Override
-    // public String getFormatHeading(){
-    //     if (Double.compare(heading, 0) == 0){
-    //         return "Heading: " + 0.0;
-    //     }
-    //     return "Heading: " + String.format("%,.1f", Math.toDegrees(heading));
-    // }
+    public static String getFormatHeading(double heading){
+        if (Double.compare(heading, 0) == 0){
+            return "" + 0.0;
+        }
+        return String.format("%,.1f", Math.toDegrees(2 * Math.PI - heading));
+    }
+
+
 }

@@ -69,6 +69,8 @@ public class Main {
         System.out.println(frame.getInsets().top);
         System.out.println(frame.getInsets().bottom);
 
+        System.out.println(frame.getInsets().top - frame.getInsets().bottom);
+
         Timer timer = new Timer(30, panel);
         timer.start();
     }

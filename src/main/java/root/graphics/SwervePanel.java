@@ -19,6 +19,7 @@ import root.util.Animatable;
 
 public class SwervePanel extends JPanel implements ActionListener{
     private Animatable base;
+    private ControlPanel panel;
     // JTextField wonText;
 
     // Font displayFont;
@@ -76,8 +77,8 @@ public class SwervePanel extends JPanel implements ActionListener{
         this.getActionMap().put(KeyBindingStrings.REQUEST_RESET_HEADING, KeyBindingActions.RESET_HEADING_ACTION);
         this.getActionMap().put(KeyBindingStrings.REQUEST_TOGGLE_HEADING, KeyBindingActions.TOGGLE_HEADING_ACTION);
 
-        ControlPanel panel = new ControlPanel(frame);
-        panel.setBounds(0, Globals.HEIGHT - 200, 300, 200 - 31);
+        panel = new ControlPanel(frame);
+        panel.setBounds(0, Globals.HEIGHT - 200, 300, 200 - 39);
         this.add(panel, JLayeredPane.PALETTE_LAYER);
         System.out.println(frame.getInsets().top);
 
@@ -93,6 +94,8 @@ public class SwervePanel extends JPanel implements ActionListener{
 
         this.base.draw(g);
 
+        this.panel.updateText(SwerveBaseAnimatable.getFormatHeading(Globals.CURRENT_HEADING));
+        
 
 
         // displayFont = new Font(Font.MONOSPACED, Font.BOLD, Globals.WIDTH / 32);
@@ -107,35 +110,5 @@ public class SwervePanel extends JPanel implements ActionListener{
 
         Globals.WIDTH = this.getWidth();
         Globals.HEIGHT = this.getHeight();
-
-        // parentFrame.requestFocus();
     }
-
-    // @Override public void keyTyped(KeyEvent e) {}
-    
-    // @Override
-    // public void keyPressed(KeyEvent e) {
-    //     switch (e.getKeyChar()){
-    //         case 'w': Globals.REQUESTED_FORWARD = 1; break;
-    //         case 'a': Globals.REQUESTED_STRAFE = -1; break;
-    //         case 's': Globals.REQUESTED_FORWARD = -1; break;
-    //         case 'd': Globals.REQUESTED_STRAFE = 1; break;
-    //         case 'j': Globals.REQUESTED_ROTATION = -1; break;
-    //         case 'l': Globals.REQUESTED_ROTATION = 1; break;
-    //         case 'b': Globals.RESET_REQUESTED = true; break;
-    //     }
-    // }
-    
-    // @Override
-    // public void keyReleased(KeyEvent e) {
-    //     switch (e.getKeyChar()){
-    //         case 'w': Globals.REQUESTED_FORWARD =0; break;
-    //         case 'a': Globals.REQUESTED_STRAFE = 0; break;
-    //         case 's': Globals.REQUESTED_FORWARD = 0; break;
-    //         case 'd': Globals.REQUESTED_STRAFE = 0; break;
-    //         case 'j': Globals.REQUESTED_ROTATION = 0; break;
-    //         case 'l': Globals.REQUESTED_ROTATION = 0; break;
-    //         case 'h': Globals.SHOW_HEADING = !Globals.SHOW_HEADING; break;
-    //     }
-    // }
 }
