@@ -1,4 +1,4 @@
-# Welcome to the SwerveVIsualizer documentation
+# Welcome to the Swerve Visualizer documentation
 
 This repository serves as the source code for rocketbooster1000's swerve visualizer.
 Swerve refers to a type of drivetrain typically used in robotics where each wheel is indpendently steered and driven. 
