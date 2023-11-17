@@ -7,7 +7,7 @@ Documentation is in next section, thank you for taking interest in this project.
 | Version Type | Latest Version | Branch |
 |--------------|----------------| ------ |
 | Latest Release | 0.1.2 | main |
-| Pre | 0.2.0-alpha2 | v0.2.0-dev |
+| Pre | 0.2.0-beta1 | v0.2.0-dev |
 
 ## Pre-release
 
