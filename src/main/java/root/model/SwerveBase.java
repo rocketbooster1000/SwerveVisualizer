@@ -6,7 +6,7 @@ import root.util.Vector;
 public class SwerveBase{
     protected SwerveModule fL, fR, bL, bR;
 
-    protected double heading;
+    private double heading;
     private double maxRotation;
 
     public enum ModuleLocation{

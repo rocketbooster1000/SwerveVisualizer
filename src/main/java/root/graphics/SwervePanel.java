@@ -2,11 +2,13 @@ package root.graphics;
 
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
@@ -24,7 +26,8 @@ public class SwervePanel extends JPanel implements ActionListener{
     // JFrame parentFrame;
     
     public SwervePanel(JFrame frame){
-        super(new GridLayout(2, 3));
+        super();
+        this.setLayout(null);
         this.base = new SwerveBaseAnimatable();
 
 
@@ -73,12 +76,10 @@ public class SwervePanel extends JPanel implements ActionListener{
         this.getActionMap().put(KeyBindingStrings.REQUEST_RESET_HEADING, KeyBindingActions.RESET_HEADING_ACTION);
         this.getActionMap().put(KeyBindingStrings.REQUEST_TOGGLE_HEADING, KeyBindingActions.TOGGLE_HEADING_ACTION);
 
-        add(new ControlPanel(frame));
-        add(new JLabel("Hello"));
-        add(new JLabel("   Hellos    "));
-
-
-
+        ControlPanel panel = new ControlPanel(frame);
+        panel.setBounds(0, Globals.HEIGHT - 200, 300, 200 - 31);
+        this.add(panel, JLayeredPane.PALETTE_LAYER);
+        System.out.println(frame.getInsets().top);
 
     }
 
