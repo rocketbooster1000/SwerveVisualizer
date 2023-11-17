@@ -18,10 +18,11 @@ Controls for the visualizer are as follows:
 - `j` key is to turn left
 - `l` key is to turn right
 - `b` key will reset the drivetrain to a heading of 0 (more on that below)
-- `h` key to toggle show/hide heading
-
 
 When using the visualizer blue arrows will appear out of the corner of the swerve base, which represent the indicated power and angle of each module. 
+
+The heading of the swerve base along with rotation speed will be displayed at the bottom of the screen.
+You may change the rotation speed as you wish, then click the `OK` button to confirm.
 
 ### Note about heading and oreintation
 
