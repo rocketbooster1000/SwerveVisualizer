@@ -24,6 +24,4 @@ public class SwerveFrame extends JFrame{
         }
         return instance;
     }
-
-
 }

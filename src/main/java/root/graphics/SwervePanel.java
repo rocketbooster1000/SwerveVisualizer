@@ -1,16 +1,13 @@
 package root.graphics;
 
 import java.awt.Graphics;
-import java.awt.GridLayout;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
+import javax.xml.bind.annotation.XmlElementDecl.GLOBAL;
 
 import root.Globals;
 import root.Globals.KeyBindingActions;
@@ -19,36 +16,13 @@ import root.util.Animatable;
 
 public class SwervePanel extends JPanel implements ActionListener{
     private Animatable base;
-    private root.graphics.RotationControlPanel rotationControlPanel;
-    private root.graphics.HeadingControlPanel headingControlPanel;
-    private JFrame parentFrame;
-    // JTextField wonText;
-
-    // Font displayFont;
-
-    // JFrame parentFrame;
+    private ControlPanel rotationControlPanel, headingControlPanel;
     
-    public SwervePanel(JFrame frame){
+    public SwervePanel(){
         super();
         this.setLayout(null);
-        this.base = new SwerveBaseAnimatable();
+        this.base = SwerveBaseAnimatable.getInstance();
 
-        this.parentFrame = frame;
-
-
-        // this.parentFrame = frame;
-
-        // displayFont = new Font("Monospaced", Font.BOLD, 16);
-
-        // wonText = new JTextField("  0", 20);
-        // wonText.setFont(displayFont);
-        // // wonText.setEditable(false);
-        // wonText.setBackground(Color.WHITE);
-        // add(wonText);
-
-        // JButton button = new JButton("OK");
-
-        // add(button);
 
         this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("pressed W"), KeyBindingStrings.REQUEST_FORWARD);
         this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("pressed S"), KeyBindingStrings.REQUEST_BACK);
@@ -81,22 +55,48 @@ public class SwervePanel extends JPanel implements ActionListener{
         this.getActionMap().put(KeyBindingStrings.REQUEST_RESET_HEADING, KeyBindingActions.RESET_HEADING_ACTION);
         this.getActionMap().put(KeyBindingStrings.REQUEST_TOGGLE_HEADING, KeyBindingActions.TOGGLE_HEADING_ACTION);
 
-        // rotationControlPanel = new RotationControlPanel(frame);
-        // this.add(rotationControlPanel, JLayeredPane.PALETTE_LAYER);
-        // System.out.println(frame.getInsets().top);
-        
-        this.rotationControlPanel = new RotationControlPanel();
-        this.headingControlPanel = new HeadingControlPanel();
+        this.rotationControlPanel = new ControlPanel(
+            "Rotation Speed",
+            String.format("%,.1f", Math.toDegrees(Globals.MAX_ROTATION_SPEED)),
+            () -> {},
+            (e) -> {
+                try{
+                    Globals.MAX_ROTATION_SPEED = Math.toRadians(Double.parseDouble(rotationControlPanel.getText()));
+                  } catch (Exception exception){}
+                  
+                rotationControlPanel.setText(String.format("%.1f", Math.toDegrees(Globals.MAX_ROTATION_SPEED)));
+            },
+            Globals.CONTROL_WIDTH,
+            Globals.CONTROL_HEIGHT / 2,
+            Globals.CONTROL_HEIGHT / 2
+        );
 
-        rotationControlPanel.setBounds(0, Globals.HEIGHT - Globals.CONTROL_HEIGHT - frame.getInsets().bottom - frame.getInsets().top, Globals.CONTROL_WIDTH, Globals.CONTROL_HEIGHT / 2);
-        headingControlPanel.setBounds(0, Globals.HEIGHT - Globals.CONTROL_HEIGHT / 2 - frame.getInsets().bottom - frame.getInsets().top, Globals.CONTROL_WIDTH, Globals.CONTROL_HEIGHT / 2);
+        headingControlPanel = new ControlPanel(
+            "Heading",
+            SwerveBaseAnimatable.getFormatHeading(Globals.CURRENT_HEADING),
+            () ->{
+                Globals.HEADING_CHANGING = (Globals.HEADING_CHANGING) ? true : headingControlPanel.isInFocus();
+                if (!Globals.HEADING_CHANGING && !headingControlPanel.isInFocus()){
+                    headingControlPanel.setText(SwerveBaseAnimatable.getFormatHeading(Globals.CURRENT_HEADING));
+                    
+                }
+                
+            },
+            (e) -> {
+                try {
+                    System.out.println("text: " + headingControlPanel.getText());
+                    Globals.BUFFER_HEADING = Math.toRadians(360 - Double.parseDouble(headingControlPanel.getText()));
+                    System.out.println(Globals.BUFFER_HEADING);
+                    Globals.CHANGE_REQUESTED = true;
+                } catch (Exception ex){System.out.println("exception");}
+            },
+            Globals.CONTROL_WIDTH,
+            Globals.CONTROL_HEIGHT / 2,
+            0
+        );
+
         this.add(rotationControlPanel, JLayeredPane.PALETTE_LAYER);
         this.add(headingControlPanel, JLayeredPane.PALETTE_LAYER);
-
-    }
-
-    public SwervePanel(){
-        this(SwerveFrame.getInstance());
     }
 
     @Override
@@ -105,13 +105,8 @@ public class SwervePanel extends JPanel implements ActionListener{
 
         this.base.draw(g);
 
-        this.rotationControlPanel.refresh();        
+        this.rotationControlPanel.refresh();
         this.headingControlPanel.refresh();
-
-
-        // displayFont = new Font(Font.MONOSPACED, Font.BOLD, Globals.WIDTH / 32);
-        // wonText.setText(" Rotation speed; " + String.format("%,.1f", Math.toDegrees(Globals.MAX_ROTATION_SPEED)));
-
     }
 
     @Override
@@ -122,5 +117,6 @@ public class SwervePanel extends JPanel implements ActionListener{
         Globals.WIDTH = this.getWidth();
         Globals.HEIGHT = this.getHeight();
 
+        System.out.println(Globals.CURRENT_HEADING);
     }
 }

@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.Timer;
 import javax.swing.UIManager;
 
-import root.graphics.RotationControlPanel;
 import root.graphics.SwerveFrame;
 import root.graphics.SwervePanel;
 
@@ -26,7 +25,7 @@ public class Main {
         // pan.setBackground(Color.GREEN);
         // pan.setBounds(Globals.WIDTH - 300, Globals.HEIGHT - 300, 300, 300);
 
-        SwervePanel panel = new SwervePanel(SwerveFrame.getInstance());
+        SwervePanel panel = new SwervePanel();
         panel.setBackground(Color.WHITE);
         // panel.setBackground(Color.WHITE);
         // panel.setBounds(0, 0, Globals.WIDTH, Globals.HEIGHT);

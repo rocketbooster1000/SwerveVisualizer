@@ -5,9 +5,11 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JComponent;
 
+import root.graphics.SwerveFrame;
+
 public final class Globals {
-    public static int WIDTH = 500;
-    public static int HEIGHT = 500;
+    public static int WIDTH = 600;
+    public static int HEIGHT = 600;
 
     public static final int CONTROL_WIDTH = 300;
     public static final int CONTROL_HEIGHT = 100;
@@ -19,9 +21,13 @@ public final class Globals {
     public static boolean RESET_REQUESTED = false;
     public static boolean FIELD_CENTRIC = true;
 
+    public static boolean HEADING_CHANGING = false;
+    public static boolean CHANGE_REQUESTED = false;
+
     public static double MAX_ROTATION_SPEED = Math.PI / 180;
 
     public static double CURRENT_HEADING = 0;
+    public static double BUFFER_HEADING = 0;
     
     public static final int DRAW_VECTOR_LENGTH = 30;
     public static final int DRAW_ARROW_LENGTH = 10;

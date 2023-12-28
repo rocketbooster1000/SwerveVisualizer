@@ -10,6 +10,7 @@ import root.util.Animatable;
 
 
 public class SwerveBaseAnimatable extends SwerveBase implements Animatable{
+    private static volatile Animatable instance = null;
     private SwerveModuelWrapperAnimatable wrapperFl, wrapperFR, wrapperBL, wrapperBR;
     private Font font;
 
@@ -39,7 +40,12 @@ public class SwerveBaseAnimatable extends SwerveBase implements Animatable{
     @Override
     public void update(){
         this.setMaxRotation(Globals.MAX_ROTATION_SPEED);
-
+        if (Globals.CHANGE_REQUESTED){
+            Globals.CURRENT_HEADING = Globals.BUFFER_HEADING;
+            this.setHeading(Globals.CURRENT_HEADING);
+            Globals.CHANGE_REQUESTED = false;
+            Globals.HEADING_CHANGING = false;
+        }
         this.drive(Globals.REQUESTED_FORWARD, Globals.REQUESTED_STRAFE, -Globals.REQUESTED_ROTATION);
     
         if (Globals.RESET_REQUESTED){
@@ -57,5 +63,14 @@ public class SwerveBaseAnimatable extends SwerveBase implements Animatable{
         return String.format("%,.1f", Math.toDegrees(2 * Math.PI - heading));
     }
 
-
+    public static Animatable getInstance(){
+        if (instance == null){
+            synchronized (SwerveBaseAnimatable.class){
+                if (instance == null){
+                    instance = new SwerveBaseAnimatable();
+                }
+            }
+        }
+        return instance;
+    }
 }
