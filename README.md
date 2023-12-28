@@ -46,7 +46,7 @@ You may change the rotation speed and heading as you wish, then click the `OK` b
 
 ### Note about heading and oreintation
 
-**This visualizer uses a field centric control scheme but visualizes from a robot centric view.** For example after turning 90 degrees and then going forward, visualizer will show arrows to the side, however from the field view this is still forward. For more information visit [here](https://gm0.org/en/latest/docs/software/tutorials/mecanum-drive.html)
+**This visualizer uses a field centric control scheme but visualizes from a robot centric view.** For example after turning 90 degrees and then going forward, visualizer will show arrows to the side, however from the field view this is still forward. For more information visit [here](https://gm0.org/en/latest/docs/software/tutorials/mecanum-drive.html). Both rotation speed and heading increase in the clockwise direction.
 
 ## Using source code
 
