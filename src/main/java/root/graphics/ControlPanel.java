@@ -26,20 +26,18 @@ import root.model.SwerveBase;
 public class ControlPanel extends JPanel implements ActionListener {
 
   private JFrame parentFrame;
-  private JButton confirmButton, otherButton;
-  private JTextField textField;
-  private JLabel headingLabel;
+  private JButton confirmButton;
+  protected JTextField textField;
 
   // Constructor
-  public ControlPanel(JFrame frame) {
-    super(new GridLayout(2, 3));
+  public ControlPanel(String labelString, String initialString) {
+    super(new GridLayout(1, 3));
 
     // super();
 
-    this.parentFrame = frame;
 
     
-    this.textField = new JTextField(String.format("%,.1f", Math.toDegrees(Globals.MAX_ROTATION_SPEED)), 10);
+    this.textField = new JTextField(initialString);
     this.textField.setEditable(true);
     this.textField.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
     this.textField.setBackground(Color.WHITE);
@@ -63,56 +61,28 @@ public class ControlPanel extends JPanel implements ActionListener {
     this.confirmButton.addActionListener(this);
     this.confirmButton.setBorderPainted(true);
 
-    this.headingLabel = new JLabel("            " + String.format("%,.1f", Globals.CURRENT_HEADING) + "  ");
 
     // this.otherButton = new JButton("OK");
     // this.otherButton.addActionListener(this);
     
     
     // changeColor("Background", this.confirmButton, Color.GRAY);
-    this.add(new JLabel("  Rotation Speed  "));
+    this.add(new JLabel("  " + labelString + "  "));
     this.add(this.textField);
     this.add(this.confirmButton);
-    
-    this.add(new JLabel("  Heading  "));
-    // this.add(this.otherButton);
-    this.add(this.headingLabel);
-    this.add(new JLabel());
-    
+
+    this.setVisible(true);
   }
   
-  public ControlPanel(){
-    this(null);
-  }
+
   
   // Called when the roll button is clicked
   public void actionPerformed(ActionEvent e) {
-    System.out.println(e.getActionCommand());
-    try{
-      Globals.MAX_ROTATION_SPEED = Math.toRadians(Double.parseDouble(textField.getText()));
-    } catch (Exception exception){}
-    
-    textField.setText(String.format("%.1f", Math.toDegrees(Globals.MAX_ROTATION_SPEED)));
-    
-    
-    
-    
-    try {
-      parentFrame.requestFocus();
-    } catch (NullPointerException npe){}
-    
-    
+
+    SwerveFrame.getInstance().requestFocus();
   }
 
   public void refresh(){
-    headingLabel.setText("          " + SwerveBaseAnimatable.getFormatHeading(Globals.CURRENT_HEADING));
+
   }
-
-  public void updateText(String text){
-    headingLabel.setText(text);
-  }
-  
-
-
-
 }

@@ -15,3 +15,6 @@ Your pull request will be reviewed and determined to be implemented.
 Once again thank you for your interest in this project.
 
 
+**Sidenote** issue and pull request templates are currently missing
+
+

@@ -6,7 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.Timer;
 import javax.swing.UIManager;
 
-import root.graphics.ControlPanel;
+import root.graphics.RotationControlPanel;
+import root.graphics.SwerveFrame;
 import root.graphics.SwervePanel;
 
 public class Main {
@@ -16,59 +17,57 @@ public class Main {
         Globals.REQUESTED_ROTATION = 0;
         Globals.RESET_REQUESTED = false;
         
-        JFrame frame = new JFrame("Swerve Visualizer v0.2.0-alpha2");
-        frame.setSize(Globals.WIDTH, Globals.HEIGHT);
-        frame.setVisible(true);
+        SwerveFrame.getInstance();
 
-        System.out.println(frame.getInsets().top);
-        // frame.setLayout(null);
+        System.out.println(SwerveFrame.getInstance().getInsets().top);
+        // SwerveFrame.getInstance().setLayout(null);
 
-        // ControlPanel pan = new ControlPanel(frame);
+        // ControlPanel pan = new ControlPanel(SwerveFrame.getInstance());
         // pan.setBackground(Color.GREEN);
         // pan.setBounds(Globals.WIDTH - 300, Globals.HEIGHT - 300, 300, 300);
 
-        SwervePanel panel = new SwervePanel(frame);
+        SwervePanel panel = new SwervePanel(SwerveFrame.getInstance());
         panel.setBackground(Color.WHITE);
         // panel.setBackground(Color.WHITE);
         // panel.setBounds(0, 0, Globals.WIDTH, Globals.HEIGHT);
-        // frame.add(pan);
+        // SwerveFrame.getInstance().add(pan);
 
 
 
         
 
-        frame.add(panel);
+        SwerveFrame.getInstance().add(panel);
 
-        System.out.println(frame.getInsets().top);
+        System.out.println(SwerveFrame.getInstance().getInsets().top);
 
 
 
-        // frame.addKeyListener(panel);
+        // SwerveFrame.getInstance().addKeyListener(panel);
 
         try{
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             // UIManager.setLookAndFeel("javax.swing.plaf.basic");
         } catch (Exception e){}
 
-        System.out.println(frame.getInsets().top);
+        System.out.println(SwerveFrame.getInstance().getInsets().top);
 
 
-        frame.setFocusable(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        System.out.println(frame.getInsets().top);
+        SwerveFrame.getInstance().setFocusable(true);
+        SwerveFrame.getInstance().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        System.out.println(SwerveFrame.getInstance().getInsets().top);
 
-        frame.setVisible(true);
+        SwerveFrame.getInstance().setVisible(true);
 
-        System.out.println(frame.getInsets().top);
+        System.out.println(SwerveFrame.getInstance().getInsets().top);
 
         
 
         panel.repaint();
 
-        System.out.println(frame.getInsets().top);
-        System.out.println(frame.getInsets().bottom);
+        System.out.println(SwerveFrame.getInstance().getInsets().top);
+        System.out.println(SwerveFrame.getInstance().getInsets().bottom);
 
-        System.out.println(frame.getInsets().top - frame.getInsets().bottom);
+        System.out.println(SwerveFrame.getInstance().getInsets().top - SwerveFrame.getInstance().getInsets().bottom);
 
         Timer timer = new Timer(30, panel);
         timer.start();

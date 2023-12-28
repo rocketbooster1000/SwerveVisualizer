@@ -19,7 +19,8 @@ import root.util.Animatable;
 
 public class SwervePanel extends JPanel implements ActionListener{
     private Animatable base;
-    private ControlPanel panel;
+    private root.graphics.RotationControlPanel rotationControlPanel;
+    private root.graphics.HeadingControlPanel headingControlPanel;
     private JFrame parentFrame;
     // JTextField wonText;
 
@@ -80,15 +81,22 @@ public class SwervePanel extends JPanel implements ActionListener{
         this.getActionMap().put(KeyBindingStrings.REQUEST_RESET_HEADING, KeyBindingActions.RESET_HEADING_ACTION);
         this.getActionMap().put(KeyBindingStrings.REQUEST_TOGGLE_HEADING, KeyBindingActions.TOGGLE_HEADING_ACTION);
 
-        panel = new ControlPanel(frame);
-        panel.setBounds(0, Globals.HEIGHT - Globals.CONTROL_HEIGHT - frame.getInsets().bottom - frame.getInsets().top, Globals.CONTROL_WIDTH, Globals.CONTROL_HEIGHT);
-        this.add(panel, JLayeredPane.PALETTE_LAYER);
-        System.out.println(frame.getInsets().top);
+        // rotationControlPanel = new RotationControlPanel(frame);
+        // this.add(rotationControlPanel, JLayeredPane.PALETTE_LAYER);
+        // System.out.println(frame.getInsets().top);
+        
+        this.rotationControlPanel = new RotationControlPanel();
+        this.headingControlPanel = new HeadingControlPanel();
+
+        rotationControlPanel.setBounds(0, Globals.HEIGHT - Globals.CONTROL_HEIGHT - frame.getInsets().bottom - frame.getInsets().top, Globals.CONTROL_WIDTH, Globals.CONTROL_HEIGHT / 2);
+        headingControlPanel.setBounds(0, Globals.HEIGHT - Globals.CONTROL_HEIGHT / 2 - frame.getInsets().bottom - frame.getInsets().top, Globals.CONTROL_WIDTH, Globals.CONTROL_HEIGHT / 2);
+        this.add(rotationControlPanel, JLayeredPane.PALETTE_LAYER);
+        this.add(headingControlPanel, JLayeredPane.PALETTE_LAYER);
 
     }
 
     public SwervePanel(){
-        this(null);
+        this(SwerveFrame.getInstance());
     }
 
     @Override
@@ -97,7 +105,8 @@ public class SwervePanel extends JPanel implements ActionListener{
 
         this.base.draw(g);
 
-        this.panel.refresh();        
+        this.rotationControlPanel.refresh();        
+        this.headingControlPanel.refresh();
 
 
         // displayFont = new Font(Font.MONOSPACED, Font.BOLD, Globals.WIDTH / 32);
@@ -112,8 +121,6 @@ public class SwervePanel extends JPanel implements ActionListener{
 
         Globals.WIDTH = this.getWidth();
         Globals.HEIGHT = this.getHeight();
-        try{
-            panel.setBounds(0, Globals.HEIGHT - Globals.CONTROL_HEIGHT , Globals.CONTROL_WIDTH, Globals.CONTROL_HEIGHT);
-        } catch (NullPointerException exception){}
+
     }
 }

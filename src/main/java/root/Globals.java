@@ -10,7 +10,7 @@ public final class Globals {
     public static int HEIGHT = 500;
 
     public static final int CONTROL_WIDTH = 300;
-    public static final int CONTROL_HEIGHT = 120;
+    public static final int CONTROL_HEIGHT = 100;
     
     public static double REQUESTED_FORWARD = 0;
     public static double REQUESTED_STRAFE = 0;
