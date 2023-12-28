@@ -78,6 +78,32 @@ Notes about contributing will come at a later date.
 
 # Release Information
 
+## v0.2.0 (122723-212406)
+
+Full release for version 0.2.0
+
+New features:
+- Revamped UI
+    - Editable rotation speed
+    - Editable/Displayable heading
+ - Added a new `getFormatHeading()` method for easy displayable heading conversion
+
+Changes:
+- Moved from `KeyListener` to `KeyBindings`
+- Folder structure now under `src/main/java` to align with maven conventions
+
+Bug fixes:
+- Fixed a bug (Issue #2) where caps lock would disable movement
+- Fixed an issue where incompatible Java versions were not disclosed 
+
+New Controls - Controls are same for both `Rotation Speed` and `Heading`:
+- Click on the text box with mouse cursor
+- Delete existing values
+- Put in desired values
+- Press ok
+
+Note: Invalid inputs will revert to previous inputs. Both `Rotation Speed` and `Heading` are in units of degrees and increase in the **clockwise** direction.
+
 ## v0.1.2 (10272023-140817)
 
 RECOMMENDED - This is a recommended patch that fixes the following bugs:
