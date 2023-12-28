@@ -1,4 +1,6 @@
-
+| Version | Issue # | Pull Request Type |
+|--------------|----------------| ------ |
+| **Fill in here** | **Fill in here** | **(Optional) Fill in here** |
 
 ## Describe your changes
 

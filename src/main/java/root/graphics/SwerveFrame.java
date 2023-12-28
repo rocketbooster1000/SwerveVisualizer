@@ -6,7 +6,7 @@ import root.Globals;
 
 public class SwerveFrame extends JFrame{
     private static volatile SwerveFrame instance = null;
-    public static final String VERSION = "Swerve Visualizer v0.2.0-pre1";
+    public static final String VERSION = "Swerve Visualizer v0.2.0";
 
     private SwerveFrame(){
         super(VERSION);

@@ -3,31 +3,23 @@ package root.graphics;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
-import javax.swing.Timer;
-import javax.swing.UIManager;
+
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
 
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Container;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import root.Globals;
 import root.Globals.KeyBindingActions;
 import root.Globals.KeyBindingStrings;
-import root.model.SwerveBase;
 import root.util.ActionPerformable;
 
 public class ControlPanel extends JPanel implements ActionListener {
 
-  private JFrame parentFrame;
   private JButton confirmButton;
   private ActionPerformable action;
   private Runnable refr;

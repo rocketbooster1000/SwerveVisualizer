@@ -1,7 +1,6 @@
 package root.graphics;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 
 import root.Globals;
@@ -12,7 +11,6 @@ import root.util.Animatable;
 public class SwerveBaseAnimatable extends SwerveBase implements Animatable{
     private static volatile Animatable instance = null;
     private SwerveModuelWrapperAnimatable wrapperFl, wrapperFR, wrapperBL, wrapperBR;
-    private Font font;
 
     public SwerveBaseAnimatable(){
         super();
@@ -21,7 +19,6 @@ public class SwerveBaseAnimatable extends SwerveBase implements Animatable{
         this.wrapperBL = new SwerveModuelWrapperAnimatable(this.bL);
         this.wrapperBR = new SwerveModuelWrapperAnimatable(this.bR);
 
-        font = new Font("Times", Font.BOLD, Globals.WIDTH / 32);
     }
 
     @Override

@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
-import javax.xml.bind.annotation.XmlElementDecl.GLOBAL;
 
 import root.Globals;
 import root.Globals.KeyBindingActions;

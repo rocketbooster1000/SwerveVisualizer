@@ -5,8 +5,6 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JComponent;
 
-import root.graphics.SwerveFrame;
-
 public final class Globals {
     public static int WIDTH = 600;
     public static int HEIGHT = 600;
