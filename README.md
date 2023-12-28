@@ -42,7 +42,7 @@ Controls for the visualizer are as follows:
 When using the visualizer blue arrows will appear out of the corner of the swerve base, which represent the indicated power and angle of each module. 
 
 The heading of the swerve base along with rotation speed will be displayed at the bottom of the screen.
-You may change the rotation speed as you wish, then click the `OK` button to confirm.
+You may change the rotation speed and heading as you wish, then click the `OK` button to confirm.
 
 ### Note about heading and oreintation
 
