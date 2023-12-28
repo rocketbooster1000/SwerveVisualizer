@@ -1,3 +1,23 @@
+# NOTICE
+
+Documentation is in next section, thank you for taking interest in this project.
+
+## Current version information
+
+| Version Type | Latest Version | Branch |
+|--------------|----------------| ------ |
+| Latest Release | 0.1.2 | main |
+| Pre | 0.2.0-beta1 | v0.2.0-dev |
+
+## Pre-release
+
+v0.2.0 is in alpha pre-release. You can download and test it from the releases page under the latest pre-release.
+Some features of pre-release include showable heading and changeable drive constants.
+
+For more information look at the releases page or visit the dev branch README
+
+---
+
 # Welcome to the Swerve Visualizer documentation
 
 This repository serves as the source code for rocketbooster1000's swerve visualizer.
@@ -80,5 +100,3 @@ This is the intitial release of this project that is not ready for production:
 - Program structure is spaghetti and not reusable
 
 Sidenote: this version never made it past pre-release thus only the alpha release notes are provided
-
-
