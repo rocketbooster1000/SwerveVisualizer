@@ -41,6 +41,9 @@ Controls for the visualizer are as follows:
 
 When using the visualizer blue arrows will appear out of the corner of the swerve base, which represent the indicated power and angle of each module. 
 
+The heading of the swerve base along with rotation speed will be displayed at the bottom of the screen.
+You may change the rotation speed as you wish, then click the `OK` button to confirm.
+
 ### Note about heading and oreintation
 
 **This visualizer uses a field centric control scheme but visualizes from a robot centric view.** For example after turning 90 degrees and then going forward, visualizer will show arrows to the side, however from the field view this is still forward. For more information visit [here](https://gm0.org/en/latest/docs/software/tutorials/mecanum-drive.html)

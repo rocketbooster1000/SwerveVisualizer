@@ -1,4 +1,4 @@
-package main.java.util;
+package root.util;
 
 import java.awt.Graphics;
 

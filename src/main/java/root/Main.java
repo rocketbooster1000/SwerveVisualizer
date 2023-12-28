@@ -1,12 +1,12 @@
-package main.java;
-
+package root;
 import java.awt.Color;
-import java.awt.Container;
 
 import javax.swing.JFrame;
 import javax.swing.Timer;
+import javax.swing.UIManager;
 
-import main.java.graphics.SwervePanel;
+import root.graphics.SwerveFrame;
+import root.graphics.SwervePanel;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -15,20 +15,19 @@ public class Main {
         Globals.REQUESTED_ROTATION = 0;
         Globals.RESET_REQUESTED = false;
         
-        JFrame frame = new JFrame("Swerve Visualizer v0.1.2");
-        frame.setSize(Globals.WIDTH, Globals.HEIGHT);
+        SwerveFrame.getInstance();
 
         SwervePanel panel = new SwervePanel();
         panel.setBackground(Color.WHITE);
+        SwerveFrame.getInstance().add(panel);
 
-        Container c = frame.getContentPane();
-        c.add(panel);
+        try{
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e){}
 
-        frame.addKeyListener(panel);
-
-        frame.setFocusable(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+        SwerveFrame.getInstance().setFocusable(true);
+        SwerveFrame.getInstance().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        SwerveFrame.getInstance().setVisible(true);
 
         panel.repaint();
 
