@@ -7,14 +7,13 @@ import root.Globals;
 import root.model.SwerveModule;
 import root.util.Animatable;
 
-public class SwerveModuelWrapperAnimatable implements Animatable{
+public class SwerveModuelWrapperAnimatable{
     private SwerveModule module;
 
     public SwerveModuelWrapperAnimatable(SwerveModule module){
         this.module = module;
     }
 
-    @Override
     public void draw(Graphics g){
         double rot = module.rotate + Math.PI / 2;
         int startX;
@@ -63,9 +62,27 @@ public class SwerveModuelWrapperAnimatable implements Animatable{
         // );
         //System.out.println(Math.toDegrees(rot));
     }
+    
+    public void drawDynamic(Graphics g, int startX, int startY, double parentHeading){
+        double rot = module.rotate + Math.PI / 2;
+        rot -= parentHeading;
 
-    @Override
-    public void update() {
+        int endX = startX - (int)(Globals.DRAW_VECTOR_LENGTH * module.power * Math.cos(rot));
+        int endY = startY - (int)(Globals.DRAW_VECTOR_LENGTH * module.power * Math.sin(rot));
+
+        int arrowX = endX - (int)(Globals.DRAW_ARROW_LENGTH * module.power * Math.cos(rot + Math.toRadians(135)));
+        int arrowY = endY - (int)(Globals.DRAW_ARROW_LENGTH * module.power * Math.sin(rot + Math.toRadians(135)));
+    
+        int arrowX2 = endX - (int)(Globals.DRAW_ARROW_LENGTH * module.power * Math.cos(rot - Math.toRadians(135)));
+        int arrowY2 = endY - (int)(Globals.DRAW_ARROW_LENGTH * module.power * Math.sin(rot - Math.toRadians(135)));
+ 
+    
+        
+        g.setColor(Color.BLUE);        
+        g.drawLine(startX, startY, endX, endY);
+        g.drawLine(endX, endY, arrowX, arrowY);
+        g.drawLine(endX, endY, arrowX2, arrowY2);
+    
         
     }
 }

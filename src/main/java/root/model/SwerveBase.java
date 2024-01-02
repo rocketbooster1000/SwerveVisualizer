@@ -28,7 +28,7 @@ public class SwerveBase{
         this(Math.toRadians(1));
     }
 
-    public void drive(double forward, double strafe, double rot){
+    public void drive(double forward, double strafe, double rot, boolean inverted){
         Vector[] vectors = Algorithims.returnSwerve(new Vector(new Vector.VectorRectangular(forward, strafe)), rot, heading);
 
         fL.setState(vectors[0]);
@@ -36,10 +36,17 @@ public class SwerveBase{
         bL.setState(vectors[2]);
         bR.setState(vectors[3]);
 
-        this.heading += maxRotation * rot;
+        if (inverted) this.heading -= maxRotation * rot;
+        else this.heading += maxRotation * rot;
 
         this.heading = Math.toRadians((Math.toDegrees(heading) % 360 + 360) % 360);
     }
+
+    public void drive(double forward, double strafe, double rot){
+        this.drive(forward, strafe, rot, false);
+    }
+
+
 
     public void setMaxRotation(double newRot){
         this.maxRotation = newRot;

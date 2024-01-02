@@ -22,7 +22,6 @@ public class SwervePanel extends JPanel implements ActionListener{
         this.setLayout(null);
         this.base = SwerveBaseAnimatable.getInstance();
 
-
         this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("pressed W"), KeyBindingStrings.REQUEST_FORWARD);
         this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("pressed S"), KeyBindingStrings.REQUEST_BACK);
         this.getInputMap(Globals.IFW).put(KeyStroke.getKeyStroke("pressed A"), KeyBindingStrings.REQUEST_STRAFE_LEFT);
@@ -116,6 +115,5 @@ public class SwervePanel extends JPanel implements ActionListener{
         Globals.WIDTH = this.getWidth();
         Globals.HEIGHT = this.getHeight();
 
-        System.out.println(Globals.CURRENT_HEADING);
     }
 }

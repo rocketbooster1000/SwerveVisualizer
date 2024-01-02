@@ -54,6 +54,6 @@ public class Vector {
     }
 
     public String toString(){
-        return "" + this.r + " r | " + this.theta + " theta";
+        return "" + this.r + " r | " + this.theta + " theta | " + Math.toDegrees(this.theta) + " degrees | " + this.x + " x | " + this.y + " y";
     }
 }

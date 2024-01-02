@@ -17,7 +17,9 @@ public final class Globals {
     public static double REQUESTED_ROTATION = 0;
 
     public static boolean RESET_REQUESTED = false;
+
     public static boolean FIELD_CENTRIC = true;
+    public static boolean FIELD_ORIENTED = true;
 
     public static boolean HEADING_CHANGING = false;
     public static boolean CHANGE_REQUESTED = false;
