@@ -5,8 +5,6 @@ import java.awt.Graphics;
 
 import root.Globals;
 import root.model.SwerveModule;
-import root.util.Animatable;
-
 public class SwerveModuelWrapperAnimatable{
     private SwerveModule module;
 
@@ -81,8 +79,6 @@ public class SwerveModuelWrapperAnimatable{
         g.setColor(Color.BLUE);        
         g.drawLine(startX, startY, endX, endY);
         g.drawLine(endX, endY, arrowX, arrowY);
-        g.drawLine(endX, endY, arrowX2, arrowY2);
-    
-        
+        g.drawLine(endX, endY, arrowX2, arrowY2);    
     }
 }

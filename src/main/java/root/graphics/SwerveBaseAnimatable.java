@@ -76,7 +76,7 @@ public class SwerveBaseAnimatable extends SwerveBase implements Animatable{
             Globals.CHANGE_REQUESTED = false;
             Globals.HEADING_CHANGING = false;
         }
-        this.drive(Globals.REQUESTED_FORWARD, Globals.REQUESTED_STRAFE, -Globals.REQUESTED_ROTATION, true);
+        this.drive(Globals.REQUESTED_FORWARD, Globals.REQUESTED_STRAFE, Globals.REQUESTED_ROTATION, true);
     
         if (Globals.RESET_REQUESTED){
             resetHeading();
